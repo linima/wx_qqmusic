@@ -1,0 +1,22 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+page{
+	color: #555;
+	font: 32rpx/1.5 "hiragino sans gb",arial;
+	background: #f4f4f4;
+}
+
+
+@keyframes rotate{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}

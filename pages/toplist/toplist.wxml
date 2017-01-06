@@ -1,0 +1,23 @@
+<view class="toplist-focus">
+	<view class="focus-bg" style="background-image: url({{topinfo.pic_album}})"></view>
+	<view class="focus-info">
+		<view class="focus-text">
+			<text class="focus-tit">{{topinfo.ListName}}</text>
+			<text class="focus-desc">{{update_time}} 更新</text>
+		</view>
+		<view class="focus-play"></view>
+	</view>
+</view>
+
+<view class="song-list{{isLight ? ' light' : ''}}" style="background:{{listBgColor}}">
+	<view class="song-item" wx:for="{{songlist}}" wx:key="unique" bindtap="playsongTap" data-data="{{item.data}}">
+		<text class="song-number">{{index+1}}</text>
+		<view class="song-body">
+			<text class="song-tit">{{item.data.songname}}</text>
+			<view class="song-desc">
+				<text wx:for="{{item.data.singer}}" wx:key="unique">{{item.name}}</text>
+				<text> · {{item.data.albumname}}</text>
+			</view>
+		</view>
+	</view>
+</view>

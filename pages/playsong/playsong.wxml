@@ -1,0 +1,27 @@
+<view class="main-wrap">
+	<view class="main">
+		<view class="song-info">
+			<image class="img" src="{{songImg}}"></image>
+			<view class="info">
+				<text class="song-name">{{playingSong.songname}}</text>
+				<view class="singer-name">
+					<text wx:for="{{playingSong.singer}}" wx:key="unique">{{item.name}}</text>
+				</view>
+			</view>
+			<view class="play {{isPlaying ? '' : 'pause'}}" bindtap="songToggle"></view>
+		</view>
+		<view class="song-lyric">
+			<image class="img {{isPlaying ? '' : 'pause'}}" src="{{songImg}}"></image>
+		</view>
+		<view class="song-control">
+			<view class="progress">
+				<text class="time-start">{{songState.currentPosition}}</text>
+				<view class="time-bar">
+					<view class="time-play" style="transform: translateX({{songState.progress}}%)"></view>
+				</view>
+				<text class="time-total">{{songState.duration}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="bg" style="background-image:url({{songImg}})"></view>
+</view>
