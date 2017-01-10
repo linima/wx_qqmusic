@@ -17,13 +17,22 @@
 
 <!--推荐-->
 <view class="recommend" hidden="{{currentTab!==0}}">
-  <swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" class="swiper">
-    <block wx:for="{{slider}}" wx:key="unique">
-      <swiper-item data-id="{{item.id}}" data-url="{{item.linkUrl}}">
-        <image src="{{item.picUrl}}" class="img"/>
-      </swiper-item>
-    </block>
-  </swiper>
+  
+  <view class="swiper-container">
+    <swiper autoplay="auto" interval="5000" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+      <block wx:for="{{slider}}" wx:key="unique">
+        <swiper-item data-id="{{item.id}}" data-url="{{item.linkUrl}}">
+          <image src="{{item.picUrl}}" class="img"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="dots">
+      <block wx:for="{{slider}}" wx:key="unique">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+
   <view class="channel">
     <text class="title">电台</text>
     <view class="list">

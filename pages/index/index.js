@@ -1,14 +1,15 @@
 //index.js
 var util = require('../../utils/util.js')
-//获取应用实例
+
 var app = getApp()
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
     navbar: ['推荐', '排行榜', '搜索'],
-    currentTab: 1,
+    currentTab: 0,
     slider: [],
+    swiperCurrent: 0,
     topList: [],
     radioList: [],
     hotkey: [],
@@ -28,9 +29,13 @@ Page({
   //   })
   // },
   onLoad: function () {
+    wx.scanCode({
+      success: function(e){
+        console.log(e)
+      }
+    })
     console.log('index onLoad');
     var that = this;
-
     //推荐频道
     util.getRecommend(function(data){
       that.setData({
@@ -54,7 +59,11 @@ Page({
         topList: data.data.topList
       })
     });
-
+  },
+  swiperChange: function(e){
+    this.setData({
+      swiperCurrent: e.detail.current
+    })
   },
   // onPullDownRefresh: function(){
   //   console.log('页面相关事件处理函数--监听用户下拉动作')

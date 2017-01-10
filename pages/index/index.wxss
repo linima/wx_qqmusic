@@ -28,14 +28,36 @@ page{
   height: 4rpx;
   background: #31c27c;
 }
-
 /*推荐*/
-.recommend .swiper{
+.swiper-container{
+  position: relative;
+}
+.swiper-container .swiper{
   height: 300rpx;
 }
-.recommend .swiper .img{
+.swiper-container .swiper .img{
   width: 100%;
   height: 100%;
+}
+.swiper-container .dots{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+}
+.swiper-container .dots .dot{
+  margin: 0 8rpx;
+  width: 14rpx;
+  height: 14rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  transition: all .6s;
+}
+.swiper-container .dots .dot.active{
+  width: 24rpx;
+  background: #f80;
 }
 .recommend .channel{
   margin: 30rpx 20rpx;
